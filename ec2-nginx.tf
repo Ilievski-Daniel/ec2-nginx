@@ -42,9 +42,9 @@ resource "null_resource" "output_private_key" {
 # Create an EC2 instance
 resource "aws_instance" "web_server" {
   ami           = data.aws_ami.ubuntu_ami.id
-  instance_type = "t2.medium" # Replace with the desired instance type
+  instance_type = "t2.medium"
 
-  key_name = aws_key_pair.ssh_key_pair.key_name # Specify the key pair to use for SSH access
+  key_name = aws_key_pair.ssh_key_pair.key_name
 
   tags = {
     Name = "nginx-web-server"
