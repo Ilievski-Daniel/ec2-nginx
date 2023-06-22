@@ -6,7 +6,33 @@ variable "aws_region" {
   default     = "eu-west-1"
 }
 
-##### SG Variables #####
+#### AMI Variables #####
+
+variable "ami_most_recent" {
+  description = "Retrieve the most recent AMI"
+  type        = bool
+  default     = true
+}
+
+variable "ami_owners" {
+  description = "List of AMI owners"
+  type        = list(string)
+  default     = ["099720109477"]
+}
+
+variable "ami_name_filter" {
+  description = "Name filter for AMI"
+  type        = list(string)
+  default     = ["ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"]
+}
+
+variable "ami_virtualization_type" {
+  description = "Virtualization type filter for AMI"
+  type        = list(string)
+  default     = ["hvm"]
+}
+
+##### Security Group Variables #####
 
 variable "web_server_sg_name" {
   description = "Name of the web server security group"

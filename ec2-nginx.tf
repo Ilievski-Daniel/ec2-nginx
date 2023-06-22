@@ -5,17 +5,17 @@ provider "aws" {
 
 # Data source to retrieve the latest Ubuntu 20.04 LTS AMI
 data "aws_ami" "ubuntu_ami" {
-  most_recent = true
-  owners      = ["099720109477"]
+  most_recent = var.ami_most_recent
+  owners      = var.ami_owners
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"]
+    values = var.ami_name_filter
   }
 
   filter {
     name   = "virtualization-type"
-    values = ["hvm"]
+    values = var.ami_virtualization_type
   }
 }
 
