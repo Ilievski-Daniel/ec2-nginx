@@ -48,12 +48,6 @@ To access the web server:
 
 2. If the deployment was successful, you should see the default Nginx welcome page.
 
-## GitHub Actions Pipeline
-
-This project includes a GitHub Actions pipeline that automates the Terraform infrastructure deployment. 
-
-The pipeline is triggered on every push to any branch and on every pull request.
-
 ## Cleaning Up
 
 1. To clean up and delete the AWS resources created by this Terraform configuration, we need to run:
@@ -62,7 +56,13 @@ The pipeline is triggered on every push to any branch and on every pull request.
     terraform destroy
     ```
     **Note**: Be cautious when running the terraform destroy command, as it will permanently delete the AWS resources associated with this configuration.
-    
+
+## GitHub Actions Pipeline
+
+This project includes a GitHub Actions pipeline that automates the Terraform infrastructure deployment. 
+
+The pipeline is triggered on every push to any branch and on every pull request.
+
 ### Pipeline Steps
 
 - **Lint**: Performs a lint check on the Terraform code to ensure consistent formatting using `terraform fmt`.
