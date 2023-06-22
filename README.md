@@ -54,12 +54,6 @@ This project includes a GitHub Actions pipeline that automates the Terraform inf
 
 The pipeline is triggered on every push to any branch and on every pull request.
 
-### Pipeline Steps
-
-- **Lint**: Performs a lint check on the Terraform code to ensure consistent formatting using `terraform fmt`.
-
-**Note**: If needed in the future, more steps can be added.
-
 ## Cleaning Up
 
 1. To clean up and delete the AWS resources created by this Terraform configuration, we need to run:
@@ -68,6 +62,12 @@ The pipeline is triggered on every push to any branch and on every pull request.
     terraform destroy
     ```
     **Note**: Be cautious when running the terraform destroy command, as it will permanently delete the AWS resources associated with this configuration.
+    
+### Pipeline Steps
+
+- **Lint**: Performs a lint check on the Terraform code to ensure consistent formatting using `terraform fmt`.
+
+**Note**: If needed in the future, more steps can be added.
 
 ## Contact
 For any questions or inquiries, please contact: [Daniel Ilievski](https://www.linkedin.com/in/danielilievski/)
