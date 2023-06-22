@@ -44,5 +44,5 @@ The pipeline is triggered on every push to any branch and on every pull request.
 
 - **Lint**: Performs a lint check on the Terraform code to ensure consistent formatting using `terraform fmt`.
 
-Note: If needed in the future, more steps can be added.
+**Note**: If needed in the future, more steps can be added.
 
