@@ -18,11 +18,25 @@ Before running this Terraform configuration, ensure that you have the following:
 
 2. Update the `variables.tf` file to customize the configuration, if desired.
 
-3. Run `terraform init` to initialize the Terraform project and download the required provider plugins.
+3. To initialize the Terraform project and download the required provider plugins, run the following command:
 
-4. Run `terraform plan` to preview the execution plan and verify the changes that will be applied.
+    ```sh
+    terraform init
+    ```
 
-5. Run `terraform apply` to create the AWS resources based on the Terraform configuration. Confirm the changes when prompted.
+4. To preview the execution plan and verify the changes that will be applied, run the following command:
+
+    ```sh
+    terraform plan
+    ```
+
+5. To create the AWS resources based on the Terraform configuration. 
+
+    ```sh
+    terraform apply
+    ```
+
+    Confirm the changes when prompted.
 
 6. Once the deployment is complete, Terraform will output the public IP address of the web server instance.
 
@@ -45,6 +59,15 @@ The pipeline is triggered on every push to any branch and on every pull request.
 - **Lint**: Performs a lint check on the Terraform code to ensure consistent formatting using `terraform fmt`.
 
 **Note**: If needed in the future, more steps can be added.
+
+## Cleaning Up
+
+1. To clean up and delete the AWS resources created by this Terraform configuration, we need to run:
+
+    ```sh
+    terraform destroy
+    ```
+    **Note**: Be cautious when running the terraform destroy command, as it will permanently delete the AWS resources associated with this configuration.
 
 ## Contact
 For any questions or inquiries, please contact: [Daniel Ilievski](https://www.linkedin.com/in/danielilievski/)
