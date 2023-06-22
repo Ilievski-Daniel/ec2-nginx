@@ -46,24 +46,15 @@ resource "null_resource" "output_private_key" {
 # Create an EC2 instance
 resource "aws_instance" "web_server" {
   ami           = data.aws_ami.ubuntu_ami.id
-  instance_type = "t2.medium"
-
-  key_name = aws_key_pair.ssh_key_pair.key_name
-
-  tags = {
-    Name = "nginx-web-server"
-  }
+  instance_type = var.instance_type
+  key_name      = aws_key_pair.ssh_key_pair.key_name
+  tags          = var.instance_tags
 
   # Configure the security group
   vpc_security_group_ids = [aws_security_group.web_server_sg.id]
 
   # Provision the user data script to install Nginx
-  user_data = <<-EOF
-              #!/bin/bash
-              apt-get update
-              apt-get install -y nginx
-              systemctl start nginx
-              EOF
+  user_data = file(var.user_data_file_path)
 }
 
 # Create a security group allowing inbound HTTP traffic

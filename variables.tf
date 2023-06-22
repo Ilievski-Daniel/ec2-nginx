@@ -117,3 +117,25 @@ variable "private_key_file_path" {
   type        = string
   default     = "~/.ssh/private_key.pem"
 }
+
+##### EC2 Instance Variables #####
+
+variable "instance_type" {
+  description = "Instance type for the EC2 instance"
+  type        = string
+  default     = "t2.medium"
+}
+
+variable "instance_tags" {
+  description = "Tags for the EC2 instance"
+  type        = map(string)
+  default     = {
+    Name = "nginx-web-server"
+  }
+}
+
+variable "user_data_file_path" {
+  description = "File path to the user data script"
+  type        = string
+  default     = "user_data.sh"
+}
