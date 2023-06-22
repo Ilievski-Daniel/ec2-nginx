@@ -129,7 +129,7 @@ variable "instance_type" {
 variable "instance_tags" {
   description = "Tags for the EC2 instance"
   type        = map(string)
-  default     = {
+  default = {
     Name = "nginx-web-server"
   }
 }
