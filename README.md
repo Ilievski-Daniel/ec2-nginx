@@ -46,3 +46,5 @@ The pipeline is triggered on every push to any branch and on every pull request.
 
 **Note**: If needed in the future, more steps can be added.
 
+## Contact
+For any questions or inquiries, please contact: [Daniel Ilievski](https://www.linkedin.com/in/danielilievski/)
