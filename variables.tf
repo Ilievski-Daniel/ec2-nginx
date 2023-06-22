@@ -91,3 +91,29 @@ variable "egress_rules" {
     }
   }
 }
+
+##### SSH Key Variables #####
+
+variable "ssh_key_algorithm" {
+  description = "Algorithm for SSH key pair generation"
+  type        = string
+  default     = "RSA"
+}
+
+variable "ssh_key_rsa_bits" {
+  description = "Number of bits for RSA SSH key pair"
+  type        = number
+  default     = 4096
+}
+
+variable "ssh_key_name" {
+  description = "Name of the SSH key pair"
+  type        = string
+  default     = "my-ssh-key"
+}
+
+variable "private_key_file_path" {
+  description = "Path and filename where the private key file will be stored"
+  type        = string
+  default     = "~/.ssh/private_key.pem"
+}

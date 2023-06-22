@@ -21,19 +21,23 @@ data "aws_ami" "ubuntu_ami" {
 
 # Generate an SSH key pair
 resource "tls_private_key" "ssh_key" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
+  algorithm = var.ssh_key_algorithm
+  rsa_bits  = var.ssh_key_rsa_bits
 }
 
 resource "aws_key_pair" "ssh_key_pair" {
-  key_name   = "my-ssh-key"
+  key_name   = var.ssh_key_name
   public_key = tls_private_key.ssh_key.public_key_openssh
 }
 
 # Output the private key to a file
 resource "null_resource" "output_private_key" {
   provisioner "local-exec" {
-    command = "echo '${tls_private_key.ssh_key.private_key_pem}' > private_key.pem"
+    command = "echo '${tls_private_key.ssh_key.private_key_pem}' > ${var.private_key_file_path}"
+  }
+
+  provisioner "local-exec" {
+    command = "chmod 400 ${var.private_key_file_path}"
   }
 
   depends_on = [aws_key_pair.ssh_key_pair]
